@@ -1,0 +1,24 @@
+#carroticon {
+    max-width: 3em;
+    filter: brightness(80%);
+}
+
+#carroticon:hover {
+    filter: brightness(100%);
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+}
+
+#searchcontainer {
+    margin-right: 2em;
+}
+
+#purbeurrelogo {
+    max-width: 3em;
+    margin-right: 1em;
+    margin-top: -1em;
+    margin-bottom: -1em;
+}
