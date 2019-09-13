@@ -1,3 +1,5 @@
+/* Menu */
+
 #carroticon {
     max-width: 3em;
     filter: brightness(80%);
@@ -17,8 +19,34 @@
 }
 
 #purbeurrelogo {
-    max-width: 3em;
+    max-width: 2em;
     margin-right: 1em;
     margin-top: -1em;
     margin-bottom: -1em;
+}
+
+/* Research field */
+
+.form-control-borderless {
+    border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+/* Bio pictures */
+
+#imgcolette {
+    width: 10em;
+    border-radius: 30px;
+    margin: 3em;
+}
+
+#imgremy {
+    width: 10em;
+    border-radius: 30px;
+    margin: 3em;
 }
