@@ -18,12 +18,15 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Scope+One" rel="stylesheet" type="text/css">
+
 
   <!-- Plugin CSS -->
   <link href="{% static '/vendor/magnific-popup/magnific-popup.css' %}" rel="stylesheet">
 
   <!-- Theme CSS - Includes Bootstrap -->
-  <link href="{% static '/css/creative.min.css' %}" rel="stylesheet">
+  <link href="{% static '/css/creative.css' %}" rel="stylesheet">
 
   <!-- My own Custom css -->
   <link href="{% static '/css/customstyle.css' %}" rel="stylesheet">
@@ -42,7 +45,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
           <form id='searchcontainer' class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Chercher" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
           </form>
           <li class="nav-item">
@@ -68,7 +71,7 @@
           <hr class="divider my-4">
         </div>
         <div class="col-lg-8 align-self-baseline">
-          <p class="text-white-75 font-weight-light mb-5">Trouvez un produit de substitution pour ce que vous consommez tout les jours.</p>
+          <p class="text-white font-weight-light mb-5">Trouvez un produit de substitution pour ce que vous consommez tout les jours.</p>
           
           <!-- Research field -->
           <div class="row justify-content-center">
@@ -103,7 +106,7 @@
         <div class="col-lg-12 text-center">
           <h2 class="text-white mt-0">Colette et Remy</h2>
           <hr class="divider light my-4">
-          <p class="text-white-50 mb-4">L'histoire façinnante de la rencontre entre une femme et rat qui ont décidé de changer la façon dont nous mangeons.</p>
+          <p class="text-white mb-4">L'histoire facinnante de la rencontre entre une femme et un rat qui ont décidé de changer la façon dont nous mangeons.</p>
         </div>
         <div class='col-lg-6 text-center'>
             <img id='imgcolette' src="{% static 'img/colette.jpg' %}">
@@ -118,7 +121,7 @@
     </div>
   </section>
 
-  <!-- Services Section -->
+  <!-- Services Section
   <section class="page-section" id="services">
     <div class="container">
       <h2 class="text-center mt-0">At Your Service</h2>
@@ -156,7 +159,7 @@
     </div>
   </section>
 
-  <!-- Portfolio Section -->
+   Portfolio Section 
   <section id="portfolio">
     <div class="container-fluid p-0">
       <div class="row no-gutters">
@@ -242,22 +245,21 @@
     </div>
   </section>
 
-  <!-- Call to Action Section -->
+   Call to Action Section 
   <section class="page-section bg-dark text-white">
     <div class="container text-center">
       <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
       <a class="btn btn-light btn-xl" href="https://startbootstrap.com/themes/creative/">Download Now!</a>
     </div>
-  </section>
+  </section> -->
 
   <!-- Contact Section -->
   <section class="page-section" id="contact">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
-          <h2 class="mt-0">Let's Get In Touch!</h2>
+          <h2 class="mt-0">Contactez-nous !</h2>
           <hr class="divider my-4">
-          <p class="text-muted mb-5">Ready to start your next project with us? Give us a call or send us an email and we will get back to you as soon as possible!</p>
         </div>
       </div>
       <div class="row">
@@ -277,7 +279,10 @@
   <!-- Footer -->
   <footer class="bg-light py-5">
     <div class="container">
-      <div class="small text-center text-muted">Copyright &copy; 2019 - Start Bootstrap</div>
+      <div class='row'>
+        <div class="col-6 small text-center text-muted"><a href=''>Mentions légales</a></div>
+        <div class="col-6 small text-center text-muted"><a href=''>Contact</a></div>
+      </div>
     </div>
   </footer>
 
