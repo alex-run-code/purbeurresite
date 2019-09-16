@@ -10670,7 +10670,7 @@ hr.light {
 }
 
 header.masthead {
-  padding-top: 10rem;
+  /* padding-top: 10rem; */
   padding-bottom: calc(10rem - 72px);
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(92, 77, 66, 0.8)), to(rgba(92, 77, 66, 0.8))), url("../img/bg-masthead.jpg");
   background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/bg-masthead.jpg");
@@ -10688,7 +10688,7 @@ header.masthead h1 {
   header.masthead {
     height: 100vh;
     min-height: 40rem;
-    padding-top: 72px;
+    /* padding-top: 72px; */
     padding-bottom: 0;
   }
   header.masthead p {

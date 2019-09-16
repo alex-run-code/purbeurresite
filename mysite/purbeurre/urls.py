@@ -20,4 +20,5 @@ from . import views
 app_name = 'purbeurre'
 urlpatterns = [
     path('', views.index, name='index'),
+    path('account/', views.account, name='account'),
 ]
