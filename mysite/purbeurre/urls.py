@@ -21,4 +21,5 @@ app_name = 'purbeurre'
 urlpatterns = [
     path('', views.index, name='index'),
     path('account/', views.account, name='account'),
+    path('signup/', views.SignUp.as_view(), name='signup'),
 ]

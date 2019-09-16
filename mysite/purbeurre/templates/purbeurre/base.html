@@ -51,13 +51,13 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
         </form>
         <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services"><i class="fas fa-user"></i></a>
+            <a class="nav-link js-scroll-trigger" href="{% url 'purbeurre:account' %}"><i class="fas fa-user"></i></a>
         </li>
         <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#portfolio"><img id='carroticon' src="{% static '/img/carroticon_inverse_white.png' %}"></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact"><i class="fas fa-sign-out-alt"></i></a>
+            <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i></a>
         </li>
         </ul>
     </div>
