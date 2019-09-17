@@ -12,51 +12,87 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">Créer un compte</div>
-                    <div class="card-body">
-                        <form action="" method="post">
-                            {% csrf_token %}
-                            <div class="form-group row">
-                                <label for="id_username" maxlength="10" class="col-md-4 col-form-label text-md-right">Pseudonyme</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="id_username" class="form-control" name="username" required autofocus>
-                                    <span class="helptext text-md-right">Requis. 10 caractères ou moins. Lettres, chiffres et @/./+/-/_ uniquement.</span>
+                    <div class="card-body">    
+
+                        <div class='login'>
+                            {% if messages %}
+                                <ul>
+                                    {% for message in messages %}
+                                    <li>{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <div class="form-group row">
+                                    <label for="id_username" maxlength="10" class="col-md-4 col-form-label text-md-right">Pseudonyme</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="id_username" class="form-control" name="username" required autofocus>
+                                        <span class="helptext text-md-right">Requis. 10 caractères ou moins. Lettres, chiffres et @/./+/-/_ uniquement.</span>
+
+                                        {% for error in form.username.errors %}
+                                        <div class="alert alert-error">
+                                            <p style='color:red'>{{ error|escape }}</p>
+                                        </div>
+                                        {% endfor %}
+
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group row">
-                                <label for="id_password1" class="col-md-4 col-form-label text-md-right">Mot de passe</label>
-                                <div class="col-md-6">
-                                    <input type="password" id="id_password1" class="form-control" name="password1" required>
-                                    <ul>
-                                        <li>Votre mot de passe ne doit pas avoir trop de ressemblance avec vos informations personnelles.</li>
-                                        <li>Votre mot de passe doit contenir au moins 8 caractères.</li>
-                                        <li>Votre mot de passe ne doit pas être trop commun.</li>
-                                        <li>Votre mot de passe ne doit pas contenir que des chiffres.</li>
-                                    </ul>
+                                <div class="form-group row">
+                                    <label for="id_email" maxlength="10" class="col-md-4 col-form-label text-md-right">Adresse Email</label>
+                                    <div class="col-md-6">
+                                        <input type="email" id="id_email" class="form-control" name="email" required autofocus>
+
+                                        {% for error in form.email.errors %}
+                                        <div class="alert alert-error">
+                                            <p style='color:red'>{{ error|escape }}</p>
+                                        </div>
+                                        {% endfor %}
+
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group row">
-                                    <label for="id_password2" class="col-md-4 col-form-label text-md-right">Confirmation</label>
-                                <div class="col-md-6">
-                                    <input type="password" id="id_password2" class="form-control" name="password2" required>
-                                    <span class="helptext">Entrez le même mot de passe que précédemment.</span>
+                                <div class="form-group row">
+                                    <label for="id_password1" class="col-md-4 col-form-label text-md-right">Mot de passe</label>
+                                    <div class="col-md-6">
+                                        <input type="password" id="id_password1" class="form-control" name="password1" required>
+                                        <ul>
+                                            <li>Votre mot de passe ne doit pas avoir trop de ressemblance avec vos informations personnelles.</li>
+                                            <li>Votre mot de passe doit contenir au moins 8 caractères.</li>
+                                            <li>Votre mot de passe ne doit pas être trop commun.</li>
+                                            <li>Votre mot de passe ne doit pas contenir que des chiffres.</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
+
+                                <div class="form-group row">
+                                        <label for="id_password2" class="col-md-4 col-form-label text-md-right">Confirmation</label>
+                                    <div class="col-md-6">
+                                        <input type="password" id="id_password2" class="form-control" name="password2" required>
+                                        <span class="helptext">Entrez le même mot de passe que précédemment.</span>
+                                        {% for error in form.password2.errors %}
+                                        <div class="alert alert-error">
+                                            <p style='color:red'>{{ error|escape }}</p>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
 
 
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Créer un compte
-                                </button>
-                            </div>
-                        </form>
+                                <div class="col-md-6 offset-md-4">
+                                    <input type="submit" name='submit' class="btn btn-primary" value='Créer un compte'>
+                                </div>
+                            </form>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </main>
-<div id='justfillit'></div>
+<div id='justanelement'
 
 {% endblock %}

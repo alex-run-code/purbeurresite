@@ -5,13 +5,16 @@
 
 {% block content %}
 <div class='container' style='padding-top:1.5em;'>
+    <div class='row'>
+        <h2>Mon Compte</h2>
+    </div>
     <div class='row' style='display: block;'>
         {% if user.is_authenticated %}
-        Hi {{ user.username }}!
-        <p><a href="{% url 'logout' %}">logout</a></p>
+        Bonjour {{ user.username }} !
+        <p><a href="{% url 'logout' %}">Deconnexion</a></p>
         {% else %}
-        <p>You are not logged in</p>
-        <a href="{% url 'login' %}">login</a>
+        <p>Vous n'êtes pas connecté.</p>
+        <a href="{% url 'login' %}">Se connecter</a>
         {% endif %}
     </div>
 </div>

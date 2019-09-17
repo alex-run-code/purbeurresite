@@ -121,5 +121,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Login
+
 LOGIN_REDIRECT_URL = 'purbeurre:account'
 LOGOUT_REDIRECT_URL = 'purbeurre:account'

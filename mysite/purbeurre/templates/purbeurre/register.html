@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+ 
+{% block title %}
+    Create User - {{ block.super }}
+{% endblock %}
+ 
+{% block content %}
+<main class="login-form">
+        <div class="cotainer">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">Créer un compte</div>
+                        <div class="card-body">
+    
+                            <div class='container'>
+                                <div class="login">
+                            
+                                    {% if messages %}
+                                        <ul>
+                                            {% for message in messages %}
+                                            <li>{{ message }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                            
+                                    <h1>Creation de compte</h1>
+                            
+                                    <form method="post" >
+                                        {% csrf_token %}
+                                        <table>
+                                            <td>{{ form.as_table }}</td>
+                                            <tr>
+                                                <td></td>
+                                                <td><input type="submit" name="submit" value="Register" /></td>
+                                            </tr>
+                                        </table>
+                                    </form>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+<div id='justfillit'></div>
+ 
+{% endblock %}
+
