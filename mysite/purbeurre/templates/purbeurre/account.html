@@ -4,24 +4,33 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<div class='container' style='padding-top:1.5em;'>
+
+<div id='accountheader' class='container' style='padding-top:1.5em; min-width:100%;'>
     <div class='row justify-content-center'>
-        <div class='col-md-6 text-center'>
+        <div class='col-md-6 text-center' style='margin-bottom: 2em'>
 
             {% if user.is_authenticated %}
 
-            <h4>A hoy</h4>
-            <h2 style='text-transform: capitalize;'>{{ user.username }} !</h2>
-            <p><a href="{% url 'logout' %}">Deconnexion</a></p>
-            <div id='accountpicture'></div>
-            
-
+            <h3 style='color:#DE9440;'><span style='background-color:rgba(0, 0, 0, .5)'>A hoy</span></h3>
+            <h1 style='text-transform: capitalize; color:white;'><span style='background-color:rgba(0, 0, 0, .5)'>{{ user.username }} !</span></h1>
+            <!-- <p><a href="{% url 'logout' %}">Deconnexion</a></p> -->
 
             {% else %}
-            <p>Vous n'êtes pas connecté.</p>
+            <p style='color:white;'><span style='background-color:rgba(0, 0, 0, .5)'>Vous n'êtes pas connecté.</span></p>
             <a href="{% url 'login' %}">Se connecter</a>
             {% endif %}
+               
 
+        </div>
+    </div>
+</div>
+
+<div class='container' style='margin-top:1.5em;'>
+    <div class='row justify-content-center'>
+        <div class='col-md-6 text-center'>
+            {% if user.is_authenticated %}
+            {{ user.email }}
+            {% endif %}
         </div>
     </div>
 </div>

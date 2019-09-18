@@ -98,5 +98,11 @@ body {
     margin-right: 0;
 }
 
-/*   */ 
+/* account page  */ 
+
+#accountheader {
+    background-image: url('../img/account-header-1.jpg');
+    background-position: 0px -500px;
+    /* min-height: 200px; */
+}
 
