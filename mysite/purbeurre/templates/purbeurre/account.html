@@ -5,17 +5,24 @@
 
 {% block content %}
 <div class='container' style='padding-top:1.5em;'>
-    <div class='row'>
-        <h2>Mon Compte</h2>
-    </div>
-    <div class='row' style='display: block;'>
-        {% if user.is_authenticated %}
-        Bonjour {{ user.username }} !
-        <p><a href="{% url 'logout' %}">Deconnexion</a></p>
-        {% else %}
-        <p>Vous n'êtes pas connecté.</p>
-        <a href="{% url 'login' %}">Se connecter</a>
-        {% endif %}
+    <div class='row justify-content-center'>
+        <div class='col-md-6 text-center'>
+
+            {% if user.is_authenticated %}
+
+            <h4>A hoy</h4>
+            <h2 style='text-transform: capitalize;'>{{ user.username }} !</h2>
+            <p><a href="{% url 'logout' %}">Deconnexion</a></p>
+            <div id='accountpicture'></div>
+            
+
+
+            {% else %}
+            <p>Vous n'êtes pas connecté.</p>
+            <a href="{% url 'login' %}">Se connecter</a>
+            {% endif %}
+
+        </div>
     </div>
 </div>
 

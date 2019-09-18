@@ -41,6 +41,14 @@
                                     <a href="{% url 'purbeurre:signup' %}">Créer un compte</a>
                                 </div>
                             </div>
+                            
+                            <div class="form-group row" style='margin-top:1em;'>
+                                <div class="col-md-6 offset-md-4">
+                                    {% if form.errors %}
+                                    <p style='color:red'>⚠ Votre identifiant et votre mot de passe ne correspondent pas. Veuillez réessayer.</p>
+                                    {% endif %}
+                                </div>
+                            </div>
 
                         </form>
                     </div>
