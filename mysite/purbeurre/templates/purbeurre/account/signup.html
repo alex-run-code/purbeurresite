@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+
+<main class="login-form">
+    <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">Créer un compte</div>
+                    <div class="card-body">    
+                        <div class='login'>
+                            {% if messages %}
+                                <ul>
+                                    {% for message in messages %}
+                                    <li>{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                                <form method="post">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit">S'enregistrer</button>
+                                </form>
+
+                                <div class="form-group row" style='margin-top:1em;'>
+                                        <p>Vous avez déjà un compte ?<a href="{% url 'account_login' %}"> Connectez-vous </a></p>
+                                </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div id='justfillit'></div>
+
+{% endblock %}

@@ -23,12 +23,6 @@ def account(request):
 def creation_successful(request):
     return render(request, 'purbeurre/creation_successful.html')
 
-
-class SignUp(generic.CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy('login')
-    template_name = 'signup.html'
-
 def signup(request):
     if request.method == 'POST':
         f = CustomUserCreationForm(request.POST)
