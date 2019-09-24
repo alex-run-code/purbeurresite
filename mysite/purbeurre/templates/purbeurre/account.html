@@ -12,7 +12,7 @@
             {% if user.is_authenticated %}
 
             <h3 style='color:#DE9440;'><span style='background-color:rgba(0, 0, 0, .5)'>A hoy</span></h3>
-            <h1 style='text-transform: capitalize; color:white;'><span style='background-color:rgba(0, 0, 0, .5)'>{{ user.username }} !</span></h1>
+            <h1 style='text-transform: capitalize; color:white;'><span style='background-color:rgba(0, 0, 0, .5)'>{{ user.first_name }} !</span></h1>
             <!-- <p><a href="{% url 'logout' %}">Deconnexion</a></p> -->
 
             {% else %}
