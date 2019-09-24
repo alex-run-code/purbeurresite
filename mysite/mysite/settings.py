@@ -124,3 +124,5 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'purbeurre:account'
 LOGOUT_REDIRECT_URL = 'purbeurre:account'
+
+AUTH_USER_MODEL = 'purbeurre.CustomUser'
