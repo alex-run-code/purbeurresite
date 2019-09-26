@@ -35,3 +35,8 @@ for x in search_result['products']:
 
 for x in search_result['products']:
     print(x['product_name'])
+
+
+# add a food
+from fooddb.models import Food
+f = Food(name='Caramel', nutriscore=3)
