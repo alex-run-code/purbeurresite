@@ -4,7 +4,9 @@
 # l'utilisateur a été créé avec le bon nom      x
 
 # erreurs
-# si l'email est déjà utilisée, affiche une erreur
+# si le champ email est vide, affiche une erreur                        x
+# si le champ first_name est vide, affiche une erreur                   x
+# si l'email est déjà utilisée, affiche une erreur                      x
 # si l'adresse email n'est pas au bon format, affiche une erreur
 # si le mot de passe ne contient que des chiffres, affiche une erreur
 # si le mot de passe est trop court, affiche une erreur
@@ -18,6 +20,7 @@
 
 from django.test import TestCase
 from .models import CustomUserManager, CustomUser
+from .forms import ItemForm, CustomUserCreationForm
 
 class UserCreationTests(TestCase):
 
@@ -33,4 +36,35 @@ class UserCreationTests(TestCase):
         self.assertIs(user.first_name is 'francois',True)
         
 
-         
+# class ItemFormTest(TestCase):
+
+#     def test_form_renders_item_text_input(self):
+#         form = ItemForm()
+#         self.fail(form.as_p())
+
+
+class CustomUserCreationFormTest(TestCase):
+
+    def test_empty_email_return_error(self):
+        form = CustomUserCreationForm(data={'email':'','first_name':''})
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['email'],["This field is required."])
+
+    def test_empty_first_name_return_error(self):
+        form = CustomUserCreationForm(data={'email':'','first_name':''})
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['first_name'],["This field is required."])
+
+    def test_existing_email_return_error(self):
+        user = CustomUser(email='francois@gmail.com',first_name='francois',password='147www258Ab')
+        user.save()
+        form = CustomUserCreationForm(data={'email':'francois@gmail.com','first_name':'francois'})
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['email'],["User with this Email address already exists."])
+
+    def test_wrong_email_return_error(self):
+        user = CustomUser(email='francois@gmail.com',first_name='francois',password='147www258Ab')
+        user.save()
+        form = CustomUserCreationForm(data={'email':'francoisgmailcom','first_name':'francois'})
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['email'],["Enter a valid email address."])
