@@ -21,6 +21,7 @@
 from django.test import TestCase
 from .models import CustomUserManager, CustomUser
 from .forms import ItemForm, CustomUserCreationForm
+from django.urls import reverse
 
 class UserCreationTests(TestCase):
 
@@ -68,3 +69,9 @@ class CustomUserCreationFormTest(TestCase):
         form = CustomUserCreationForm(data={'email':'francoisgmailcom','first_name':'francois'})
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['email'],["Enter a valid email address."])
+
+    def test_user_is_created_after_submitting_form(self):
+        self.client.post(reverse('purbeurre:signup'), {'email':'francois@gmail.com', 'first_name':'francois', 'password1':'147www258Ab', 'password2':'147www258Ab'})
+        self.assertEqual(CustomUser.objects.filter(email='francois@gmail.com').count(), 1)
+
+
