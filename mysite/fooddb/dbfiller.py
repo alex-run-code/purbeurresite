@@ -214,20 +214,21 @@ for category in list_of_categories:
         })
     for product in products:
         try:
-            # print(get_infos(product)['product name'])
-            Food(
-                name=get_infos(product)['product name'], 
-                nutriscore=get_infos(product)['nutriscore'],
-                picture_url=get_infos(product)['picture'],
-                off_url=get_infos(product)['url'],
-                sugar_100g=get_infos(product)['sugars_100g'],
-                salt_100g=get_infos(product)['salt_100g'],
-                carbohydrates_100g=get_infos(product)['carbohydrates_100g'],
-                sodium_100g=get_infos(product)['sodium_100g'],
-                saturated_fat_100g=get_infos(product)['saturated'],
-                proteins_100g=get_infos(product)['proteins_100g'],
-                fat_100g=get_infos(product)['fat_100g'],
-                 )
+            f = Food(
+                name=product['product_name'], 
+                nutriscore=product['nutriments']['nutrition-score-fr'],
+                picture_url=product['image_front_url'],
+                off_url=product['url'],
+                sugar_100g=product['nutriments']['sugars_100g'],
+                salt_100g=product['nutriments']['salt_100g'],
+                carbohydrates_100g=product['nutriments']['carbohydrates_100g'],
+                sodium_100g=product['nutriments']['sodium_100g'],
+                saturated_fat_100g=product['nutriments']['saturated-fat_100g'],
+                proteins_100g=product['nutriments']['proteins_100g'],
+                fat_100g=product['nutriments']['fat_100g'],
+                )
+            f.save()
+            print(product['product_name'], ' added')
         except:
             pass
 
