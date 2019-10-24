@@ -53,9 +53,10 @@ products = openfoodfacts.products.get_by_facets({
 })
 
 # get infos from food
-print(products[1])                                                                              # all info products
+print(products[1])                                                                           # all info products
 print('product name : ', products[1]['product_name'])                                           # product name
-print('picture : ', products[1]['image_front_url'])                                             # picture
+print('picture : ', products[1]['image_front_url'])
+print('off_page : ', products[1]['url'])                                           # picture
 print('nutriscore : ', products[1]['nutriments']['nutrition-score-fr'])                         # nutriscore
 print('sugar level for 100g : ', products[1]['nutriments']['sugars_100g'])                      # sugar level for 100g
 print('salt level for 100g : ', products[1]['nutriments']['salt_100g'])                         # salt level for 100g
@@ -69,8 +70,9 @@ print('fat level for 100g : ', products[1]['nutriments']['fat_100g'])           
 def get_infos(product):                                                                           # all info products
     return({
         'product name' : product['product_name'],
-        'picture' : product['image_front_url'],
         'nutriscore' : product['nutriments']['nutrition-score-fr'],
+        'picture' : product['image_front_url'],
+        'off_url' : product['url'],
         'sugars_100g' : product['nutriments']['sugars_100g'],
         'salt_100g' : product['nutriments']['salt_100g'],
         'carbohydrates_100g' : product['nutriments']['carbohydrates_100g'],
@@ -88,8 +90,20 @@ for product in products:
 
 # add a food in db
 from fooddb.models import Food
-f = Food(name='Caramel', nutriscore=3)
-
+f = Food(
+        name='foot test',
+        nutriscore=3,
+        picture_url='wewe',
+        off_url='wewe',
+        sugar_100g=3,
+        salt_100g=3,
+        carbohydrates_100g=3,
+        sodium_100g=3,
+        saturated_fat_100g=3,
+        proteins_100g=3,
+        fat_100g=3,
+    )
+f.save()
 
 # a list of categories
 list_of_categories = [
@@ -200,7 +214,20 @@ for category in list_of_categories:
         })
     for product in products:
         try:
-            print(get_infos(product)['product name'])
+            # print(get_infos(product)['product name'])
+            Food(
+                name=get_infos(product)['product name'], 
+                nutriscore=get_infos(product)['nutriscore'],
+                picture_url=get_infos(product)['picture'],
+                off_url=get_infos(product)['url'],
+                sugar_100g=get_infos(product)['sugars_100g'],
+                salt_100g=get_infos(product)['salt_100g'],
+                carbohydrates_100g=get_infos(product)['carbohydrates_100g'],
+                sodium_100g=get_infos(product)['sodium_100g'],
+                saturated_fat_100g=get_infos(product)['saturated'],
+                proteins_100g=get_infos(product)['proteins_100g'],
+                fat_100g=get_infos(product)['fat_100g'],
+                 )
         except:
             pass
 
