@@ -1052,7 +1052,7 @@ pre_filled_fc_list = [
         ('La Vinaigrette nature (25,5 % MG) ', 'fr:vinaigrettes-allegees-en-matieres-grasses'),
         ('Vinaigrette balsamique Tomates séchées', 'fr:vinaigrettes-allegees-en-matieres-grasses'),
         ("Vinaigrette légère - Huile d'Olive et Pointe d'Olive Noire", 'fr:vinaigrettes-allegees-en-matieres-grasses'),
-    ]
+]
 
 def add_food_in_db():
     ''' 
@@ -1070,7 +1070,7 @@ def add_food_in_db():
             try:
                 f = Food(
                     name=product['product_name'], 
-                    nutriscore=product['nutriments']['nutrition-score-fr'],
+                    nutriscore=product['nutriscore_grade'],
                     picture_url=product['image_front_url'],
                     off_url=product['url'],
                     sugar_100g=product['nutriments']['sugars_100g'],
@@ -1086,6 +1086,7 @@ def add_food_in_db():
             except:
                 pass
 
+# dont use it if you use the pre filled fc list
 def fc_list_filler():
     '''
     look at foods in our database and their respective category
@@ -1111,7 +1112,8 @@ def add_categories_in_db():
     '''
     add each category from fc list in the database 'category'
     '''
-    for item in fc_list:
+    # for item in fc_list:
+    for item in pre_filled_fc_list:    
         try:
             c = Category(name=item[1])
             c.save()
@@ -1124,9 +1126,13 @@ def fills_fc_database():
     Add in Food_category database the id of 
     the foods and their category
     '''
-    for item in fc_list:
-        food_id = Food.objects.filter(name=item[0])[0]
-        category_id = Category.objects.filter(name=item[1])[0]
-        fc = Food_category(food_id=food_id, category_id=category_id)
-        fc.save()
-        print('food_id : {}, category_id : {}, added'.format(food_id, category_id))
+    # for item in fc_list:
+    for item in pre_filled_fc_list:
+        try:
+            food_id = Food.objects.filter(name=item[0])[0]
+            category_id = Category.objects.filter(name=item[1])[0]
+            fc = Food_category(food=food_id, category=category_id)
+            fc.save()
+            print('food_id : {}, category_id : {}, added'.format(food_id, category_id))
+        except:
+            pass

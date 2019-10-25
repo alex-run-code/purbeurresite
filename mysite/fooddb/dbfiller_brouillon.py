@@ -21,7 +21,7 @@ for item in search_result.json()['products']:
 print(search_result.json()['products'][0])                                          # all info products
 print(search_result.json()['products'][0]['product_name'])                          # product name
 print(search_result.json()['products'][0]['image_front_url'])                       # picture
-print(search_result.json()['products'][0]['nutriments']['nutrition-score-fr'])      # nutriscore
+print(search_result.json()['products'][0]['nutriscore_grade'])      # nutriscore
 print(search_result.json()['products'][0]['nutriments']['sugars_100g'])             # sugar level for 100g
 print(search_result.json()['products'][0]['nutriments']['salt_100g'])               # salt level for 100g
 print(search_result.json()['products'][0]['nutriments']['carbohydrates_100g'])      # carbohydrates level for 100g
@@ -53,11 +53,11 @@ products = openfoodfacts.products.get_by_facets({
 })
 
 # get infos from food
-print(products[1])                                                                           # all info products
+print(products[1])                                                                              # all info products
 print('product name : ', products[1]['product_name'])                                           # product name
-print('picture : ', products[1]['image_front_url'])
-print('off_page : ', products[1]['url'])                                           # picture
-print('nutriscore : ', products[1]['nutriments']['nutrition-score-fr'])                         # nutriscore
+print('picture : ', products[1]['image_front_url'])                                             # off page
+print('off_page : ', products[1]['url'])                                                        # picture
+print('nutriscore : ', products[1]['nutriscore_grade'])                                         # nutriscore
 print('sugar level for 100g : ', products[1]['nutriments']['sugars_100g'])                      # sugar level for 100g
 print('salt level for 100g : ', products[1]['nutriments']['salt_100g'])                         # salt level for 100g
 print('carbohydrates level for 100g : ', products[1]['nutriments']['carbohydrates_100g'])       # carbohydrates level for 100g
@@ -70,7 +70,7 @@ print('fat level for 100g : ', products[1]['nutriments']['fat_100g'])           
 def get_infos(product):                                                                           # all info products
     return({
         'product name' : product['product_name'],
-        'nutriscore' : product['nutriments']['nutrition-score-fr'],
+        'nutriscore' : product['nutriscore_grade'],
         'picture' : product['image_front_url'],
         'off_url' : product['url'],
         'sugars_100g' : product['nutriments']['sugars_100g'],
@@ -210,7 +210,7 @@ for category in list_of_categories:
         try:
             f = Food(
                 name=product['product_name'], 
-                nutriscore=product['nutriments']['nutrition-score-fr'],
+                nutriscore=product['nutriscore_grade'],
                 picture_url=product['image_front_url'],
                 off_url=product['url'],
                 sugar_100g=product['nutriments']['sugars_100g'],
