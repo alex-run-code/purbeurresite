@@ -265,3 +265,13 @@ for item in fc_list:
     fc.save()
     print('food_id : {}, category_id : {}, added'.format(food_id, category_id))
 
+
+# sql request to get foods and their category
+SELECT fooddb_food.name, fooddb_category.name 
+FROM  fooddb_food_category 
+INNER JOIN fooddb_food ON fooddb_food_category.food_id_id = fooddb_food.id 
+INNER JOIN fooddb_category ON fooddb_food_category.category_id_id = fooddb_category.id 
+WHERE fooddb_food.id = fooddb_food_category.food_id_id AND fooddb_category.id = fooddb_food_category.category_id_id;
+
+# sql request to see the column of a table
+PRAGMA table_info(fooddb_category);
