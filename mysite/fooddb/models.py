@@ -3,7 +3,7 @@ from django.db import models
 
 class Food(models.Model):
     name = models.CharField(max_length=200, default='none', unique=True)
-    nutriscore = models.IntegerField(default=0)
+    nutriscore = models.CharField(max_length=200, default='none')
     picture_url = models.CharField(max_length=200, default='none')
     off_url = models.CharField(max_length=200, default='none')
     sugar_100g = models.FloatField(default=0)
@@ -18,8 +18,8 @@ class Food(models.Model):
         return self.name
 
 class Food_category(models.Model):
-    food_id = models.ForeignKey('Food', on_delete=models.CASCADE)
-    category_id = models.ForeignKey('Category', on_delete=models.CASCADE)
+    food = models.ForeignKey('Food', on_delete=models.CASCADE)
+    category = models.ForeignKey('Category', on_delete=models.CASCADE)
 
 class Category(models.Model):
     name = models.CharField(max_length=200, default='none', unique=True)
