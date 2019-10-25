@@ -22,7 +22,7 @@ class Food_category(models.Model):
     category_id = models.ForeignKey('Category', on_delete=models.CASCADE)
 
 class Category(models.Model):
-    name = models.CharField(max_length=200, default='none')
+    name = models.CharField(max_length=200, default='none', unique=True)
 
     def __str__(self):
         return self.name
