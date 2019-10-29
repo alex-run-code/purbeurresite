@@ -48,7 +48,7 @@
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
         <form id='searchcontainer' class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Chercher" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+            <button id='searchButton' class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
         </form>
         <li class="nav-item">
             {% if user.is_authenticated %}
@@ -97,15 +97,15 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
   <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'vendor/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="js/creative.min.js"></script>
+  <script src="{% static 'js/creative.min.js' %}"></script>
 
 </body>
 
