@@ -15,13 +15,14 @@ function ajaxPost(url, data, callback) {
 
 
 
-// searchButton = document.getElementById('searchButton');
-// searchButton.addEventListener('click', function (e) {
+searchButton = document.getElementById('searchButton');
+searchButton.addEventListener('click', function (e) {
 
-//     ajaxPost('/research/', searchButton, function(reponse){
-//         answerFromApi = reponse;
-//         dictAnswer = JSON.parse(answerFromApi);
-//     });
+    e.preventDefault();
+    ajaxPost('/purbeurre/api/', searchButton, function(reponse){
+        answerFromApi = reponse;
+        console.log(answerFromApi);
+    });
 
-// });
+});
 

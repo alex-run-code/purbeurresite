@@ -46,8 +46,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
-        <form id='searchcontainer' class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Chercher" aria-label="Search">
+        <form id='searchcontainer' action="{% url 'purbeurre:search_result' %}" class="form-inline my-2 my-lg-0" method='post'>
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" name='search_field' placeholder="Chercher" aria-label="Search">
             <button id='searchButton' class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
         </form>
         <li class="nav-item">
@@ -90,6 +91,7 @@
         if (typeof justfillit != "undefined") {
             document.getElementById('footer').style = 'position:absolute;bottom:0;width:100%;height:60px;';  
         }
+
     </script>
             
 
