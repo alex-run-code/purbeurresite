@@ -7,7 +7,7 @@ from .forms import CustomUserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.shortcuts import redirect
-from fooddb.research import display_products
+from fooddb.research import find_substitute
 from django import forms
 
 # Create your views here.
@@ -56,7 +56,7 @@ def search_result(request):
     if request.method == 'POST':
 
     # Check if the form is valid:
-        answer = display_products(request.POST['search_field'])
+        answer = find_substitute(request.POST['search_field'])
         context = {'reponse':answer}
         return render(request, 'purbeurre/search_result.html', context)
 
