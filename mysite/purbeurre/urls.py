@@ -26,4 +26,5 @@ urlpatterns = [
     path('creation_successful/', views.creation_successful, name='creation_successful'),
     path('search_result/', views.search_result, name='search_result'),
     path('<int:food_id>/', views.food_page, name='food_page'),
+    path('add_to_favorites/', views.add_to_favorites, name='add_to_favorites'),
 ]

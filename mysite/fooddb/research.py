@@ -1,11 +1,11 @@
 from fooddb.models import Food, Food_category, Category
 
 def find_substitute(research):
-    selection = Food.objects.filter(name__contains=research).first()
-    print('selection : ', selection)
-    category = Category.objects.filter(food_category__food__name=selection).first().name
+    category = Category.objects.filter(food_category__food__name__icontains=research).first()
+    if not category:
+        return []
     print('category : ', Category)
-    substitute_list = Food.objects.filter(food_category__category__name=category).order_by('nutriscore')
+    substitute_list = Food.objects.filter(food_category__category=category).order_by('nutriscore')
     return substitute_list
 
 # Category.objects.filter(food_category__food__name='Chiffonnade de Jambon Sec')

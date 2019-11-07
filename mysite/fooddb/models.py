@@ -1,4 +1,5 @@
 from django.db import models
+from purbeurre.models import CustomUser
 
 
 class Food(models.Model):
@@ -26,3 +27,8 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+class Favorites(models.Model):
+    user = models.ForeignKey('purbeurre.CustomUser', on_delete=models.CASCADE)
+    food = models.ForeignKey('Food', on_delete=models.CASCADE)
+    

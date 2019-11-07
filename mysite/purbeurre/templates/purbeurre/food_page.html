@@ -3,6 +3,42 @@
 {% load static %}
 {% block content %}
 
-{{ reponse }}
+<img src="{{ picture_url }}"></img>
+ <br>
+id:
+{{ id }} <br>
+name: 
+{{ name }} <br>
+nutriscore:
+{{ nutriscore }} <br>picture_url:
+{{ picture_url }} <br>
+off_url:
+{{ off_url }} <br> 
+sugar_100g:
+{{ sugar_100g }} <br>
+salt_100g:
+{{ salt_100g }} <br>
+carbohydrates_100g:
+{{ carbohydrates_100g }} <br>
+sodium_100g:
+{{ sodium_100g }} <br>
+saturated_fat_100g:
+{{ saturated_fat_100g }} <br>
+proteins_100g:
+{{ proteins_100g }} <br>
+fat_100g:
+{{ fat_100g }} <br>
+
+{% if user.is_authenticated %}
+<form id='fav_form' action="{% url 'purbeurre:add_to_favorites' %}" class="form-inline my-2 my-lg-0" method='post'>
+        {% csrf_token %}
+        <input type='hidden' name='user_id' value='{{ user.id }}'>
+        <input type='hidden' name='food_id' value='{{ id }}'>
+        <button id='fav_button' class="btn btn-outline-success my-2 my-sm-0" type="submit">Ajouter aux favoris</button>
+</form>
+{% else %}
+        <i>Connectez vous pour ajouter un aliment en favoris.</i>
+{% endif %}
 
 {% endblock %}
+

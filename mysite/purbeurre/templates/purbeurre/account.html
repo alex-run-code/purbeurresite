@@ -30,6 +30,10 @@
         <div class='col-md-6 text-center'>
             {% if user.is_authenticated %}
             {{ user.email }}
+            <h3>Mes favoris</h3>
+            {% for favorite in myfavorites %}
+            <a href=../{{favorite.id}}>{{favorite.name}}</a> <br>
+            {% endfor %}
             {% endif %}
         </div>
     </div>

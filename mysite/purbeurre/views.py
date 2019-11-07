@@ -9,6 +9,8 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from fooddb.research import find_substitute
 from django import forms
+from fooddb.models import Food, Favorites
+from purbeurre.models import CustomUser
 
 # Create your views here.
 
@@ -19,7 +21,16 @@ def test_page(request):
     return render(request, 'purbeurre/test_page.html')
 
 def account(request):
-    return render(request, 'purbeurre/account.html')
+    current_user = request.user
+    foods = Food.objects.filter(favorites__user__id=current_user.id)
+    fav_list = []
+    for food in foods:
+        fav_list.append({
+            'name':food.name, 
+            'id':food.id,
+            })
+    context = {'myfavorites':fav_list}
+    return render(request, 'purbeurre/account.html', context)
 
 def creation_successful(request):
     return render(request, 'purbeurre/creation_successful.html')
@@ -57,7 +68,7 @@ def search_result(request):
     # Check if the form is valid:
         list_of_substitute = find_substitute(request.POST['search_field'])
         sub_dic = []
-        if list_of_substitute.count() > 0:
+        if list_of_substitute:
             for sub in list_of_substitute:
                 sub_dic.append({
                     'id':sub.id,
@@ -73,14 +84,44 @@ def search_result(request):
                     'proteins_100g':sub.proteins_100g,
                     'fat_100g':sub.fat_100g,
                     })
-            context = {'reponse':sub_dic}
+            context = {
+                'reponse':sub_dic,
+                'message':''
+                }
         else:
-            context = {'reponse':'Aucune resultat'}
+            context = {'message':'Aucune resultat'}
         return render(request, 'purbeurre/search_result.html', context)
 
 def food_page(request, food_id):
-    context = {'reponse':food_id}
+    food = Food.objects.filter(id=food_id)[0]
+
+    context = {
+        'id':food.id,
+        'name':food.name,
+        'nutriscore':food.nutriscore,
+        'picture_url':food.picture_url,
+        'off_url':food.off_url,
+        'sugar_100g':food.sugar_100g,
+        'salt_100g':food.salt_100g,
+        'carbohydrates_100g':food.carbohydrates_100g,
+        'sodium_100g':food.sodium_100g,
+        'saturated_fat_100g':food.saturated_fat_100g,
+        'proteins_100g':food.proteins_100g,
+        'fat_100g':food.fat_100g,
+        }
     return render(request, 'purbeurre/food_page.html', context)
+
+def add_to_favorites(request):
+    if request.method == 'POST':
+        user = CustomUser.objects.filter(id=request.POST['user_id'])[0]
+        food = Food.objects.filter(id=request.POST['food_id'])[0]
+        f = Favorites(
+                    user=user, 
+                    food=food,
+                    )
+        f.save()
+    return redirect(request.META['HTTP_REFERER'])
+
 
 
 
