@@ -25,4 +25,5 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('creation_successful/', views.creation_successful, name='creation_successful'),
     path('search_result/', views.search_result, name='search_result'),
+    path('<int:food_id>/', views.food_page, name='food_page'),
 ]

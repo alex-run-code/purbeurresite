@@ -2,6 +2,38 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-salut
-{{ reponse }}
+
+<table style="width:100%">
+    <tr>
+      <th>nom</th>
+      <th>nutriscore</th>
+      <th>sugar_100g</th>
+      <th>salt_100g</th>
+      <th>carbohydrates_100g</th>
+      <th>sodium_100g</th>
+      <th>saturated_fat_100g</th>
+      <th>proteins_100g</th>
+      <th>fat_100g</th>
+    </tr>
+    {% for item in reponse %}
+    <tr>
+        <td><a href=../{{item.id}}>{{item.name}}</a></td>
+        <td>{{item.nutriscore}}</td>
+        <td>{{item.sugar_100g}}</td>
+        <td>{{item.salt_100g}}</td>
+        <td>{{item.carbohydrates_100g}}</td>
+        <td>{{item.sodium_100g}}</td>
+        <td>{{item.saturated_fat_100g}}</td>
+        <td>{{item.proteins_100g}}</td>
+        <td>{{item.fat_100g}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+
+
+
+
 {% endblock %}
