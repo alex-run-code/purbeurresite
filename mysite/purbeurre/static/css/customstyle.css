@@ -44,6 +44,11 @@ body {
     box-shadow: none;
 }
 
+.img_search {
+    height: 10em;
+    width: 20em;
+  }
+
 /* Bio pictures */
 
 #imgcolette {

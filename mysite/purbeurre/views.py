@@ -85,7 +85,7 @@ def search_result(request):
                     'fat_100g':sub.fat_100g,
                     })
             context = {
-                'reponse':sub_dic,
+                'reponse':sub_dic[:6],
                 'message':''
                 }
         else:

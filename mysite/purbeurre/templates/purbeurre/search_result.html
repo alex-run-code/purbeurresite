@@ -3,7 +3,7 @@
 {% load static %}
 {% block content %}
 
-<table style="width:100%">
+<!-- <table style="width:100%">
     <tr>
       <th>nom</th>
       <th>nutriscore</th>
@@ -29,7 +29,60 @@
     </tr>
     {% endfor %}
     {{ message }}
-</table>
+</table> -->
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm">
+      <table>
+          <tr><h1 style='text-align: right;'> {{ reponse.0.nutriscore }} </h1></tr>
+          <tr><img class='img_search' src='{{ reponse.0.picture_url }}'></tr>
+          <tr>{{ reponse.0.name }}</tr>
+      </table>
+    </div>
+    <div class="col-sm">
+      <table>
+        <tr><h1 style='text-align: right;'> {{ reponse.1.nutriscore }} </h1></tr>
+        <tr><img class='img_search' src='{{ reponse.1.picture_url }}'></tr>
+        <tr>{{ reponse.1.name }}</tr>
+      </table>
+    </div>
+    <div class="col-sm">
+      <table>
+        <tr><h1 style='text-align: right;'> {{ reponse.2.nutriscore }} </h1></tr>
+        <tr><img class='img_search' src='{{ reponse.2.picture_url }}'></tr>
+        <tr>{{ reponse.2.name }}</tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm">
+      <table>
+        <tr><h1 style='text-align: right;'> {{ reponse.3.nutriscore }} </h1></tr>
+        <tr><img class='img_search' src='{{ reponse.3.picture_url }}'></tr>
+        <tr>{{ reponse.3.name }}</tr>
+      </table>
+    </div>
+    <div class="col-sm">
+      <table>
+        <tr><h1 style='text-align: right;'> {{ reponse.4.nutriscore }} </h1></tr>
+        <tr><img class='img_search' src='{{ reponse.4.picture_url }}'></tr>
+        <tr>{{ reponse.4.name }}</tr>
+      </table>
+    </div>
+    <div class="col-sm">
+      <table>
+        <tr><h1 style='text-align: right;'> {{ reponse.5.nutriscore }} </h1></tr>
+        <tr><img class='img_search' src='{{ reponse.5.picture_url }}'></tr>
+        <tr>{{ reponse.5.name }}</tr>
+      </table>
+    </div>
+  </div>
+
+</div>
 
 
 

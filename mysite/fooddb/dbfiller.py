@@ -1136,3 +1136,8 @@ def fills_fc_database():
             print('food_id : {}, category_id : {}, added'.format(food_id, category_id))
         except:
             pass
+
+add_food_in_db()
+fc_list_filler()
+add_categories_in_db()
+fills_fc_database()
