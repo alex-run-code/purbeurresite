@@ -27,4 +27,6 @@ urlpatterns = [
     path('search_result/', views.search_result, name='search_result'),
     path('<int:food_id>/', views.food_page, name='food_page'),
     path('add_to_favorites/', views.add_to_favorites, name='add_to_favorites'),
+    path('fav_added/', views.fav_added, name='fav_added'),
+    path('legal/', views.legal, name='legal'),
 ]

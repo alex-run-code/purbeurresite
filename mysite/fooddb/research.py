@@ -8,5 +8,4 @@ def find_substitute(research):
     substitute_list = Food.objects.filter(food_category__category=category).order_by('nutriscore')
     return substitute_list
 
-# Category.objects.filter(food_category__food__name='Chiffonnade de Jambon Sec')
-# Category.objects.filter(food_category__food__name='Rillettes de poulet rôti')
+

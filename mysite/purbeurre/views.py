@@ -85,7 +85,7 @@ def search_result(request):
                     'fat_100g':sub.fat_100g,
                     })
             context = {
-                'reponse':sub_dic[:6],
+                'reponse':sub_dic[:5],
                 'message':''
                 }
         else:
@@ -120,8 +120,11 @@ def add_to_favorites(request):
                     food=food,
                     )
         f.save()
-    return redirect(request.META['HTTP_REFERER'])
+    return render(request, 'purbeurre/fav_added.html')
 
 
+def fav_added(request):
+    return render(request, 'purbeurre/fav_added.html')
 
-
+def legal(request):
+    return render(request, 'purbeurre/legal.html')

@@ -3,42 +3,59 @@
 {% load static %}
 {% block content %}
 
-<img src="{{ picture_url }}"></img>
- <br>
-id:
-{{ id }} <br>
-name: 
-{{ name }} <br>
-nutriscore:
-{{ nutriscore }} <br>picture_url:
-{{ picture_url }} <br>
-off_url:
-{{ off_url }} <br> 
-sugar_100g:
-{{ sugar_100g }} <br>
-salt_100g:
-{{ salt_100g }} <br>
-carbohydrates_100g:
-{{ carbohydrates_100g }} <br>
-sodium_100g:
-{{ sodium_100g }} <br>
-saturated_fat_100g:
-{{ saturated_fat_100g }} <br>
-proteins_100g:
-{{ proteins_100g }} <br>
-fat_100g:
-{{ fat_100g }} <br>
+<header class='header_food_page'><h1>[ {{ name }} ]</h1><img class='img_header_food_page' src="{{ picture_url }}"></img></header>
 
-{% if user.is_authenticated %}
-<form id='fav_form' action="{% url 'purbeurre:add_to_favorites' %}" class="form-inline my-2 my-lg-0" method='post'>
-        {% csrf_token %}
-        <input type='hidden' name='user_id' value='{{ user.id }}'>
-        <input type='hidden' name='food_id' value='{{ id }}'>
-        <button id='fav_button' class="btn btn-outline-success my-2 my-sm-0" type="submit">Ajouter aux favoris</button>
-</form>
-{% else %}
-        <i>Connectez vous pour ajouter un aliment en favoris.</i>
-{% endif %}
+
+<div style='margin-top:5em; text-align: center' class='container'>
+        <div class="row">
+                <div class="col-sm">
+                        <h5>nutriscore:</h5> <br>
+                        <span class='nutri_food_page'> {{ nutriscore }} </span> <br>
+                </div>
+                <div class="col-sm">
+                        <h5>Valeurs nutritionnelles pour 100g</h5>
+                        Sucre:
+                        {{ sugar_100g }} <br>
+                        Sel:
+                        {{ salt_100g }} <br>
+                        Glucide:
+                        {{ carbohydrates_100g }} <br>
+                        Sodium:
+                        {{ sodium_100g }} <br>
+                        Gras saturés:
+                        {{ saturated_fat_100g }} <br>
+                        Protéines:
+                        {{ proteins_100g }} <br>
+                        Gras:
+                        {{ fat_100g }} <br>
+                </div>          
+        </div>
+        <div style='margin-top:10px; text-align: center;' class="row">
+                <div class="col-sm"></div>
+                <div class="col-sm">
+                        <button onclick="window.location.href = '{{off_url}}';" class="btn btn-outline-success my-2 my-sm-0" type="submit">Voir la fiche d'openfoodfacts</button>
+                        {% if user.is_authenticated %}
+                        <form id='fav_form' action="{% url 'purbeurre:add_to_favorites' %}" class="form-inline my-2 my-lg-0" method='post'>
+                        {% csrf_token %}
+                        <input type='hidden' name='user_id' value='{{ user.id }}'>
+                        <input type='hidden' name='food_id' value='{{ id }}'>
+                        <button id='fav_button' class="btn btn-outline-success my-2 my-sm-0" type="submit">Ajouter aux favoris</button>
+                        </form>
+                        {% else %}
+                                <i>Connectez vous pour ajouter un aliment en favoris.</i>
+                        {% endif %}
+                </div>
+                <div class="col-sm"></div>
+        </div>
+</div>
 
 {% endblock %}
+
+
+
+
+
+
+
+
 

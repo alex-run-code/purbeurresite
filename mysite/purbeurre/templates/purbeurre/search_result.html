@@ -1,84 +1,139 @@
-
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
 
-<!-- <table style="width:100%">
-    <tr>
-      <th>nom</th>
-      <th>nutriscore</th>
-      <th>sugar_100g</th>
-      <th>salt_100g</th>
-      <th>carbohydrates_100g</th>
-      <th>sodium_100g</th>
-      <th>saturated_fat_100g</th>
-      <th>proteins_100g</th>
-      <th>fat_100g</th>
-    </tr>
-    {% for item in reponse %}
-    <tr>
-        <td><a href=../{{item.id}}>{{item.name}}</a></td>
-        <td>{{item.nutriscore}}</td>
-        <td>{{item.sugar_100g}}</td>
-        <td>{{item.salt_100g}}</td>
-        <td>{{item.carbohydrates_100g}}</td>
-        <td>{{item.sodium_100g}}</td>
-        <td>{{item.saturated_fat_100g}}</td>
-        <td>{{item.proteins_100g}}</td>
-        <td>{{item.fat_100g}}</td>
-    </tr>
-    {% endfor %}
-    {{ message }}
-</table> -->
-
-
-<div class="container">
+<div style='margin-top:5em; margin-bottom: 5em;' class="container">
 
   <div class="row">
     <div class="col-sm">
+      {% if reponse.0 %}
       <table>
-          <tr><h1 style='text-align: right;'> {{ reponse.0.nutriscore }} </h1></tr>
-          <tr><img class='img_search' src='{{ reponse.0.picture_url }}'></tr>
-          <tr>{{ reponse.0.name }}</tr>
+          <tr><h3 class='nutri_search'><span class='nutri_search_bg'>{{ reponse.0.nutriscore }} </span> </h3></tr>
+          <tr><a href=../{{reponse.0.id}}><img class='img_search' src='{{ reponse.0.picture_url }}'></a></tr>
+          <tr></h><a href=../{{reponse.0.id}}>{{ reponse.0.name }}</a></tr><br>
+          <tr>
+            {% if user.is_authenticated %}
+              <form id='fav_form' action="{% url 'purbeurre:add_to_favorites' %}" class="form-inline my-2 my-lg-0" method='post'>
+                  {% csrf_token %}
+                  <input type='hidden' name='user_id' value='{{ user.id }}'>
+                  <input type='hidden' name='food_id' value='{{ reponse.0.id }}'>
+                  <button id='fav_button' class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="far fa-save"></i>Ajouter aux favoris</button>
+              </form>
+            {% else %}
+            <p><i>Connectez vous pour ajouter un aliment en favoris.</p></i>
+            {% endif %}
+          </tr>
       </table>
+      {% endif %}
+      
     </div>
     <div class="col-sm">
+      {% if reponse.1 %}
       <table>
-        <tr><h1 style='text-align: right;'> {{ reponse.1.nutriscore }} </h1></tr>
-        <tr><img class='img_search' src='{{ reponse.1.picture_url }}'></tr>
-        <tr>{{ reponse.1.name }}</tr>
+        <tr><h3 class='nutri_search'><span class='nutri_search_bg'>{{ reponse.1.nutriscore }} </span></h3></tr>
+        <tr><a href=../{{reponse.1.id}}><img class='img_search' src='{{ reponse.1.picture_url }}'></a></tr>
+        <tr><a href=../{{reponse.1.id}}>{{ reponse.1.name }}</a></tr><br>
+        <tr>
+          {% if user.is_authenticated %}
+              <form id='fav_form' action="{% url 'purbeurre:add_to_favorites' %}" class="form-inline my-2 my-lg-0" method='post'>
+                  {% csrf_token %}
+                  <input type='hidden' name='user_id' value='{{ user.id }}'>
+                  <input type='hidden' name='food_id' value='{{ reponse.1.id }}'>
+                  <button id='fav_button' class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="far fa-save"></i>Ajouter aux favoris</button>
+              </form>
+          {% else %}
+            <p><i>Connectez vous pour ajouter un aliment en favoris.</p></i>
+          {% endif %}
+        </tr>
       </table>
+      {% endif %}
     </div>
     <div class="col-sm">
+      {% if reponse.2 %}
       <table>
-        <tr><h1 style='text-align: right;'> {{ reponse.2.nutriscore }} </h1></tr>
-        <tr><img class='img_search' src='{{ reponse.2.picture_url }}'></tr>
-        <tr>{{ reponse.2.name }}</tr>
+        <tr><h3 class='nutri_search'><span class='nutri_search_bg'>{{ reponse.2.nutriscore }} </span></h3></tr>
+        <tr><a href=../{{reponse.2.id}}><img class='img_search' src='{{ reponse.2.picture_url }}'></a></tr>
+        <tr><a href=../{{reponse.2.id}}>{{ reponse.2.name }}</a></tr><br>
+        <tr>
+          {% if user.is_authenticated %}
+              <form id='fav_form' action="{% url 'purbeurre:add_to_favorites' %}" class="form-inline my-2 my-lg-0" method='post'>
+                  {% csrf_token %}
+                  <input type='hidden' name='user_id' value='{{ user.id }}'>
+                  <input type='hidden' name='food_id' value='{{ reponse.2.id }}'>
+                  <button id='fav_button' class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="far fa-save"></i>Ajouter aux favoris</button>
+              </form>
+          {% else %}
+            <p><i>Connectez vous pour ajouter un aliment en favoris.</p></i>
+          {% endif %}
+        </tr>
       </table>
+      {% endif %}
     </div>
   </div>
 
   <div class="row">
     <div class="col-sm">
+      {% if reponse.3 %}
       <table>
-        <tr><h1 style='text-align: right;'> {{ reponse.3.nutriscore }} </h1></tr>
-        <tr><img class='img_search' src='{{ reponse.3.picture_url }}'></tr>
-        <tr>{{ reponse.3.name }}</tr>
+        <tr><h3 class='nutri_search'><span class='nutri_search_bg'>{{ reponse.3.nutriscore }} </span></h3></tr>
+        <tr><a href=../{{reponse.3.id}}><img class='img_search' src='{{ reponse.3.picture_url }}'></a></tr>
+        <tr><a href=../{{reponse.3.id}}>{{ reponse.3.name }}</a></tr><br>
+        <tr>
+          {% if user.is_authenticated %}
+              <form id='fav_form' action="{% url 'purbeurre:add_to_favorites' %}" class="form-inline my-2 my-lg-0" method='post'>
+                  {% csrf_token %}
+                  <input type='hidden' name='user_id' value='{{ user.id }}'>
+                  <input type='hidden' name='food_id' value='{{ reponse.3.id }}'>
+                  <button id='fav_button' class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="far fa-save"></i>Ajouter aux favoris</button>
+              </form>
+          {% else %}
+            <p><i>Connectez vous pour ajouter un aliment en favoris.</p></i>
+          {% endif %}
+        </tr>
       </table>
+      {% endif %}
     </div>
     <div class="col-sm">
+      {% if reponse.4 %}
       <table>
-        <tr><h1 style='text-align: right;'> {{ reponse.4.nutriscore }} </h1></tr>
-        <tr><img class='img_search' src='{{ reponse.4.picture_url }}'></tr>
-        <tr>{{ reponse.4.name }}</tr>
+        <tr><h3 class='nutri_search'><span class='nutri_search_bg'>{{ reponse.4.nutriscore }} </span></h3></tr>
+        <tr><a href=../{{reponse.4.id}}><img class='img_search' src='{{ reponse.4.picture_url }}'></a></tr>
+        <tr><a href=../{{reponse.4.id}}>{{ reponse.4.name }}</a></tr><br>
+        <tr>
+          {% if user.is_authenticated %}
+                <form id='fav_form' action="{% url 'purbeurre:add_to_favorites' %}" class="form-inline my-2 my-lg-0" method='post'>
+                    {% csrf_token %}
+                    <input type='hidden' name='user_id' value='{{ user.id }}'>
+                    <input type='hidden' name='food_id' value='{{ reponse.4.id }}'>
+                    <button id='fav_button' class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="far fa-save"></i>Ajouter aux favoris</button>
+                </form>
+          {% else %}
+              <p><i>Connectez vous pour ajouter un aliment en favoris.</p></i>
+          {% endif %}
+        </tr>  
       </table>
+      {% endif %}
     </div>
     <div class="col-sm">
+      {% if reponse.5 %}
       <table>
-        <tr><h1 style='text-align: right;'> {{ reponse.5.nutriscore }} </h1></tr>
-        <tr><img class='img_search' src='{{ reponse.5.picture_url }}'></tr>
-        <tr>{{ reponse.5.name }}</tr>
+        <tr><h3 class='nutri_search'><span class='nutri_search_bg'>{{ reponse.5.nutriscore }} </span></h3></tr>
+        <tr><a href=../{{reponse.5.id}}><img class='img_search' src='{{ reponse.5.picture_url }}'></a></tr>
+        <tr><a href=../{{reponse.5.id}}>{{ reponse.5.name }}</a></tr><br>
+        <tr>
+          {% if user.is_authenticated %}
+                <form id='fav_form' action="{% url 'purbeurre:add_to_favorites' %}" class="form-inline my-2 my-lg-0" method='post'>
+                    {% csrf_token %}
+                    <input type='hidden' name='user_id' value='{{ user.id }}'>
+                    <input type='hidden' name='food_id' value='{{ reponse.5.id }}'>
+                    <button id='fav_button' class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="far fa-save"></i>Ajouter aux favoris</button>
+                </form>
+          {% else %}
+              <p><i>Connectez vous pour ajouter un aliment en favoris.</p></i>
+          {% endif %}
+        </tr>  
       </table>
+      {% endif %}
     </div>
   </div>
 
