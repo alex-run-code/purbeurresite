@@ -4,12 +4,12 @@
 
 <div style='margin-top:5em; margin-bottom: 5em;' class="container">
 
-  <div class="row">
+  <div class="row" style='margin-left: 50px; margin-right: 50px;'>
     <div class="col-sm">
       {% if reponse.0 %}
       <table>
           <tr><h3 class='nutri_search'><span class='nutri_search_bg'>{{ reponse.0.nutriscore }} </span> </h3></tr>
-          <tr><a href=../{{reponse.0.id}}><img class='img_search' src='{{ reponse.0.picture_url }}'></a></tr>
+          <tr><a href=../{{reponse.0.id}}><img class='img_search' style='background-image: url( {{ reponse.0.picture_url }} );'></a></tr><br>
           <tr></h><a href=../{{reponse.0.id}}>{{ reponse.0.name }}</a></tr><br>
           <tr>
             {% if user.is_authenticated %}
@@ -31,7 +31,7 @@
       {% if reponse.1 %}
       <table>
         <tr><h3 class='nutri_search'><span class='nutri_search_bg'>{{ reponse.1.nutriscore }} </span></h3></tr>
-        <tr><a href=../{{reponse.1.id}}><img class='img_search' src='{{ reponse.1.picture_url }}'></a></tr>
+        <tr><a href=../{{reponse.1.id}}><img class='img_search' style='background-image: url( {{ reponse.1.picture_url }} );'></a></tr><br>
         <tr><a href=../{{reponse.1.id}}>{{ reponse.1.name }}</a></tr><br>
         <tr>
           {% if user.is_authenticated %}
@@ -52,7 +52,7 @@
       {% if reponse.2 %}
       <table>
         <tr><h3 class='nutri_search'><span class='nutri_search_bg'>{{ reponse.2.nutriscore }} </span></h3></tr>
-        <tr><a href=../{{reponse.2.id}}><img class='img_search' src='{{ reponse.2.picture_url }}'></a></tr>
+        <tr><a href=../{{reponse.2.id}}><img class='img_search' style='background-image: url( {{ reponse.2.picture_url }} );'></a></tr><br>
         <tr><a href=../{{reponse.2.id}}>{{ reponse.2.name }}</a></tr><br>
         <tr>
           {% if user.is_authenticated %}
@@ -71,12 +71,12 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" style='margin-left: 50px; margin-right: 50px;'>
     <div class="col-sm">
       {% if reponse.3 %}
       <table>
         <tr><h3 class='nutri_search'><span class='nutri_search_bg'>{{ reponse.3.nutriscore }} </span></h3></tr>
-        <tr><a href=../{{reponse.3.id}}><img class='img_search' src='{{ reponse.3.picture_url }}'></a></tr>
+        <tr><a href=../{{reponse.3.id}}><img class='img_search' style='background-image: url( {{ reponse.3.picture_url }} );'></a></tr><br>
         <tr><a href=../{{reponse.3.id}}>{{ reponse.3.name }}</a></tr><br>
         <tr>
           {% if user.is_authenticated %}
@@ -97,7 +97,7 @@
       {% if reponse.4 %}
       <table>
         <tr><h3 class='nutri_search'><span class='nutri_search_bg'>{{ reponse.4.nutriscore }} </span></h3></tr>
-        <tr><a href=../{{reponse.4.id}}><img class='img_search' src='{{ reponse.4.picture_url }}'></a></tr>
+        <tr><a href=../{{reponse.4.id}}><img class='img_search' style='background-image: url( {{ reponse.4.picture_url }} );'></a></tr><br>
         <tr><a href=../{{reponse.4.id}}>{{ reponse.4.name }}</a></tr><br>
         <tr>
           {% if user.is_authenticated %}
@@ -118,7 +118,7 @@
       {% if reponse.5 %}
       <table>
         <tr><h3 class='nutri_search'><span class='nutri_search_bg'>{{ reponse.5.nutriscore }} </span></h3></tr>
-        <tr><a href=../{{reponse.5.id}}><img class='img_search' src='{{ reponse.5.picture_url }}'></a></tr>
+        <tr><a href=../{{reponse.5.id}}><img class='img_search' style='background-image: url( {{ reponse.5.picture_url }} );'></a></tr><br>
         <tr><a href=../{{reponse.5.id}}>{{ reponse.5.name }}</a></tr><br>
         <tr>
           {% if user.is_authenticated %}
@@ -138,11 +138,4 @@
   </div>
 
 </div>
-
-
-
-
-
-
-
 {% endblock %}

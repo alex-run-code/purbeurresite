@@ -10655,15 +10655,15 @@ hr.light {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     background-color: #fff;
   }
-  #mainNav.navbar-scrolled .navbar-brand {
+  /* #mainNav.navbar-scrolled .navbar-brand {
     color: #212529;
-  }
+  } */
   #mainNav.navbar-scrolled .navbar-brand:hover {
     color: #E8A75D;
   }
-  #mainNav.navbar-scrolled .navbar-nav .nav-item .nav-link {
+  /* #mainNav.navbar-scrolled .navbar-nav .nav-item .nav-link {
     color: #212529;
-  }
+  } */
   #mainNav.navbar-scrolled .navbar-nav .nav-item .nav-link:hover {
     color: #E8A75D;
   }
