@@ -5,7 +5,7 @@ from fooddb.models import Category, Food, Food_category
 # Create your tests here.
 class FindSubstituteTest(TestCase):
 
-    def test_substitutes_are_from_same_category(self):
+    def setUp(self):
         food1 = Food(name='poulet aux petits pois',nutriscore='b')
         food1.save()
         food2 = Food(name='poulet braisé',nutriscore='c')
@@ -27,12 +27,17 @@ class FindSubstituteTest(TestCase):
         fc4 = Food_category(food=food4, category=category2)
         fc4.save()
 
+    def test_substitutes_are_from_same_category(self):
         substitutes = find_substitute('poulet')
         category_research = Category.objects.filter(food_category__food__name__icontains='poulet')
-        print('category_research : ', category_research[0])
         for item in substitutes:
             category_substitute = Category.objects.filter(food_category__food__name=item)
-            print('category_substitute : ', category_substitute[0])
             self.assertEqual(category_substitute[0], category_research[0])
+
+    def test_if_no_substitute_return_nothing(self):
+        substitutes = find_substitute('cacao')
+        self.assertEqual(substitutes, [])
+
+    # verifier que les nutriscores sont dans l'ordre
         
 
