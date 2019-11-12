@@ -34,16 +34,6 @@
                 <div class="col-sm"></div>
                 <div class="col-sm">
                         <button onclick="window.location.href = '{{off_url}}';" class="btn btn-outline-success my-2 my-sm-0" type="submit">Voir la fiche d'openfoodfacts</button>
-                        {% if user.is_authenticated %}
-                        <form id='fav_form' action="{% url 'purbeurre:add_to_favorites' %}" class="form-inline my-2 my-lg-0" method='post'>
-                        {% csrf_token %}
-                        <input type='hidden' name='user_id' value='{{ user.id }}'>
-                        <input type='hidden' name='food_id' value='{{ id }}'>
-                        <button id='fav_button' class="btn btn-outline-success my-2 my-sm-0" type="submit">Ajouter aux favoris</button>
-                        </form>
-                        {% else %}
-                                <i>Connectez vous pour ajouter un aliment en favoris.</i>
-                        {% endif %}
                 </div>
                 <div class="col-sm"></div>
         </div>
