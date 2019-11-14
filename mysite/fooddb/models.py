@@ -1,5 +1,4 @@
 from django.db import models
-from purbeurre.models import CustomUser
 
 
 class Food(models.Model):
@@ -18,9 +17,11 @@ class Food(models.Model):
     def __str__(self):
         return self.name
 
+
 class Food_category(models.Model):
     food = models.ForeignKey('Food', on_delete=models.CASCADE)
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
+
 
 class Category(models.Model):
     name = models.CharField(max_length=200, default='none', unique=True)
@@ -28,7 +29,7 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+
 class Favorites(models.Model):
     user = models.ForeignKey('purbeurre.CustomUser', on_delete=models.CASCADE)
     food = models.ForeignKey('Food', on_delete=models.CASCADE)
-    

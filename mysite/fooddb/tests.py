@@ -3,16 +3,18 @@ from fooddb.research import find_substitute
 from fooddb.models import Category, Food, Food_category
 
 # Create your tests here.
+
+
 class FindSubstituteTest(TestCase):
 
     def setUp(self):
-        food1 = Food(name='poulet aux petits pois',nutriscore='b')
+        food1 = Food(name='poulet aux petits pois', nutriscore='b')
         food1.save()
-        food2 = Food(name='poulet braisé',nutriscore='c')
+        food2 = Food(name='poulet braisé', nutriscore='c')
         food2.save()
-        food3 = Food(name='nuggets de poulet',nutriscore='d')
+        food3 = Food(name='nuggets de poulet', nutriscore='d')
         food3.save()
-        food4 = Food(name='glace à la fraise',nutriscore='c')
+        food4 = Food(name='glace à la fraise', nutriscore='c')
         food4.save()
         category1 = Category(name="viande")
         category1.save()
@@ -37,7 +39,3 @@ class FindSubstituteTest(TestCase):
     def test_if_no_substitute_return_nothing(self):
         substitutes = find_substitute('cacao')
         self.assertEqual(substitutes, [])
-
-    # verifier que les nutriscores sont dans l'ordre
-        
-
