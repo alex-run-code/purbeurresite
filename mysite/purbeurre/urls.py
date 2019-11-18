@@ -21,7 +21,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('account/', views.account, name='account'),
     path('signup/', views.signup, name='signup'),
-    path('register/', views.register, name='register'),
     path('creation_successful/', views.creation_successful, name='creation_successful'),
     path('search_result/', views.search_result, name='search_result'),
     path('<int:food_id>/', views.food_page, name='food_page'),

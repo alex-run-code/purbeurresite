@@ -8,6 +8,9 @@ from fooddb.models import Category, Food, Food_category
 class FindSubstituteTest(TestCase):
 
     def setUp(self):
+        """
+        Fill the database with some samples
+        """
         food1 = Food(name='poulet aux petits pois', nutriscore='b')
         food1.save()
         food2 = Food(name='poulet braisé', nutriscore='c')
@@ -30,6 +33,10 @@ class FindSubstituteTest(TestCase):
         fc4.save()
 
     def test_substitutes_are_from_same_category(self):
+        """
+        test if the substitutes are from the same category
+        than the research
+        """
         substitutes = find_substitute('poulet')
         category_research = Category.objects.filter(food_category__food__name__icontains='poulet')
         for item in substitutes:
@@ -37,5 +44,9 @@ class FindSubstituteTest(TestCase):
             self.assertEqual(category_substitute[0], category_research[0])
 
     def test_if_no_substitute_return_nothing(self):
+        """
+        if there are no substitute, the research should
+        return an empty list
+        """
         substitutes = find_substitute('cacao')
         self.assertEqual(substitutes, [])

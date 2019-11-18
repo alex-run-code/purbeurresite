@@ -1,0 +1,164 @@
+/* Body */
+
+html, body { 
+    height: 100%;
+    padding-top: 32px;  /*  Margin bottom by footer height */
+}
+
+#page-content {
+    flex: 1 0 auto;
+  }
+
+#footer {
+    margin-top: 50px;
+}
+
+/* Menu */
+
+#carroticon {
+    max-width: 3em;
+    filter: brightness(80%);
+}
+
+#carroticon:hover {
+    filter: brightness(100%);
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+}
+
+#searchcontainer {
+    margin-right: 2em;
+}
+
+#purbeurrelogo {
+    max-width: 2em;
+    margin-right: 1em;
+    margin-top: -1em;
+    margin-bottom: -1em;
+}
+
+
+/* Research field */
+
+.form-control-borderless {
+    border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.img_search {
+    height: 15em;
+    width: 100%;
+    background-position: center;
+  }
+
+.nutri_search {
+    text-transform: uppercase;
+    text-align: right;
+}
+
+.nutri_search_bg {
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #e8a75d;
+    border-radius: 50px 50px 50px 50px;
+    
+}
+
+
+
+.fa-save {
+    margin-right: 5px;
+}
+/* Bio pictures */
+
+#imgcolette {
+    width: 10em;
+    border-radius: 30px;
+    margin: 3em;
+}
+
+#imgremy {
+    width: 10em;
+    border-radius: 30px;
+    margin: 3em;
+}
+
+
+/* login page */
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+
+.navbar-laravel
+{
+    box-shadow: 0 2px 4px rgba(0,0,0,.04);
+}
+
+/* .navbar-brand , .nav-link, .my-form, .login-form
+{
+    font-family: Raleway, sans-serif;
+} */
+
+.my-form
+{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.my-form .row
+{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.login-form
+{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.login-form .row
+{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* account page  */ 
+
+#accountheader {
+    background-image: url('../img/account-header-1.jpg');
+    background-position: 0px -500px;
+     min-height: 200px;
+}
+
+/* food page */
+
+.header_food_page {
+    width: 100%;
+    height: 200px;
+    overflow:hidden;
+}
+
+.header_food_page h1{
+    position: relative;
+    text-align: center;
+    margin-top: 50px;
+    color: seashell;
+}
+
+.img_header_food_page {
+    width: 100%;
+    margin-top: -50%;
+}
+
+.nutri_food_page {
+    text-transform: uppercase;
+}

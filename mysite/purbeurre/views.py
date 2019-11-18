@@ -18,6 +18,9 @@ def test_page(request):
 
 
 def account(request):
+    """
+    This function shows the account page of the user, with its favorites
+    """
     current_user = request.user
     foods = Food.objects.filter(favorites__user__id=current_user.id)
     fav_list = []
@@ -35,6 +38,9 @@ def creation_successful(request):
 
 
 def signup(request):
+    """
+    This function creates an account for the user.
+    """
     if request.method == 'POST':
         f = CustomUserCreationForm(request.POST)
         if f.is_valid():
@@ -48,22 +54,12 @@ def signup(request):
     return render(request, 'purbeurre/signup.html', {'form': f})
 
 
-def register(request):
-    if request.method == 'POST':
-        f = CustomUserCreationForm(request.POST)
-        if f.is_valid():
-            f.save()
-            messages.success(request, 'Votre compte a bien été enregistré. Cliquez sur "se connecter" pour vous connecter.')
-            return redirect('purbeurre:register')
-
-    else:
-        f = CustomUserCreationForm()
-
-    return render(request, 'purbeurre/register.html', {'form': f})
-
-
 def search_result(request):
-    # If this is a POST request then process the Form data
+    """
+    This function send the input of the user in
+    the function "find_substitute" and return a
+    list of substitutes
+    """
     if request.method == 'POST':
 
         # Check if the form is valid:
@@ -95,6 +91,9 @@ def search_result(request):
 
 
 def food_page(request, food_id):
+    """
+    This function return a page with all the informations of a given food
+    """
     food = Food.objects.filter(id=food_id)[0]
 
     context = {
@@ -115,6 +114,9 @@ def food_page(request, food_id):
 
 
 def add_to_favorites(request):
+    """
+    This function adds a food in the user's favorites list.
+    """
     if request.method == 'POST':
         user = CustomUser.objects.filter(id=request.POST['user_id'])[0]
         food = Food.objects.filter(id=request.POST['food_id'])[0]
