@@ -16,3 +16,6 @@ script:
 branches:
   only:
     - staging
+
+env: DJANGO_SETTINGS_MODULE=disquaire_project.settings.travis
+
