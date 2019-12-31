@@ -16,4 +16,4 @@ services:
 env: DJANGO_SETTINGS_MODULE=mysite.settings.travis
 
 script:
-  - python ./manage.py test
+  - python mysite/manage.py test
