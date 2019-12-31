@@ -2,3 +2,5 @@ env
 *.pyc
 __pycache__/
 env37
+purbeurresite/settings/production.py
+purbeurresite/mysite/staticfiles/
