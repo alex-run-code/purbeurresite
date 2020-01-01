@@ -16,6 +16,9 @@ Including another URLconf
 from django.urls import path
 from . import views
 
+def trigger_error(request):
+    division_by_zero = 1 / 0
+
 app_name = 'purbeurre'
 urlpatterns = [
     path('', views.index, name='index'),
@@ -27,4 +30,5 @@ urlpatterns = [
     path('add_to_favorites/', views.add_to_favorites, name='add_to_favorites'),
     path('fav_added/', views.fav_added, name='fav_added'),
     path('legal/', views.legal, name='legal'),
+    path('sentry-debug/', trigger_error),
 ]
