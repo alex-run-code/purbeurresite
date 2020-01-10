@@ -156,6 +156,8 @@ def fc_list_filler():
                     print(item.name, ' ', tag)
         except KeyError:
             print('key error')
+        except IndexError:
+            print('Index Error')
 
 
 def add_categories_in_db():

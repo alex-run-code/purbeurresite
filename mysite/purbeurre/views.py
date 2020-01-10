@@ -10,7 +10,7 @@ from purbeurre.models import CustomUser
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'purbeurre/index.html')
 
 
 def test_page(request):
@@ -134,3 +134,4 @@ def fav_added(request):
 
 def legal(request):
     return render(request, 'purbeurre/legal.html')
+
