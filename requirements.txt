@@ -1,6 +1,6 @@
 certifi==2019.9.11
 chardet==3.0.4
-Django==2.2.7
+Django==2.2.27
 idna==2.8
 git+https://github.com/openfoodfacts/openfoodfacts-python@90cc8c1#egg=openfoodfacts
 psycopg2==2.8.4
